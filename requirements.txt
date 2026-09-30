@@ -1,0 +1,5 @@
+# Pinado na mesma versão do driver DuckDB do Metabase (ver README/SETUP) para
+# evitar erro de "incompatible file format" ao abrir o warehouse.duckdb no Metabase.
+duckdb==1.5.5
+pandas>=2.0.0
+requests>=2.31.0

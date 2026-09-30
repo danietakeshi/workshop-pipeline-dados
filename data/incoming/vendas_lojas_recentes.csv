@@ -1,0 +1,261 @@
+id_cliente,nm_cliente,dt_venda,id_loja,uf_cidade,categoria_produto,sabor_item,qtd_vendida,vl_unitario,vl_total,tipo_pagamento,idade,genero
+CLI00027,Sabrina Lima,2026-08-28,LJ01,Sao Paulo,Agua de Coco,Coco,4,8.96,35.84,pix,32,M
+CLI00021,Sabrina Souza,2026-08-28,LJ01,Sao Paulo,Milkshake,Ovomaltine,1,13.83,13.83,cartao,59,F
+CLI00087,Rafael Silva,2026-08-28,LJ01,Sao Paulo,Picole,Limao,3,6.1,18.3,dinheiro,58,M
+CLI00047,Gabriela Martins,2026-08-28,LJ01,Sao Paulo,Agua de Coco,Coco,4,7.86,31.44,cartao,35,F
+CLI00133,Joao Lima,2026-08-28,LJ01,Sao Paulo,Agua de Coco,Coco,4,6.99,27.96,pix,58,M
+CLI00085,Carla Souza,2026-08-28,LJ01,Sao Paulo,Milkshake,Ovomaltine,3,15.87,47.61,pix,39,F
+CLI00072,Karina Silva,2026-08-28,LJ01,Sao Paulo,Picole,Chocolate,5,6.35,31.75,pix,19,M
+CLI00149,Otavio Rodrigues,2026-08-28,LJ01,Sao Paulo,Sorvete Pote,Napolitano,1,27.68,27.68,dinheiro,64,F
+CLI00112,Mariana Ferreira,2026-08-28,LJ01,Sao Paulo,Sorvete Pote,Napolitano,3,27.29,81.87,pix,33,M
+CLI00149,Otavio Rodrigues,2026-08-28,LJ01,Sao Paulo,Sorvete Pote,Baunilha,4,30.54,122.16,cartao,64,F
+CLI00007,Isabela Silva,2026-08-28,LJ01,Sao Paulo,Picole,Morango,3,6.18,18.54,cartao,64,M
+CLI00074,Rafael Santos,2026-08-28,LJ01,Sao Paulo,Milkshake,Ovomaltine,5,12.97,64.85,cartao,70,F
+CLI00105,Nathan Silva,2026-08-28,LJ01,Sao Paulo,Picole,Chocolate,3,5.32,15.96,cartao,27,M
+CLI00034,Sabrina Rodrigues,2026-08-28,LJ02,Rio de Janeiro,Sorvete Pote,Chocolate,4,18.4,73.6,cartao,65,M
+CLI00086,Otavio Lima,2026-08-28,LJ02,Rio de Janeiro,Milkshake,Chocolate,3,15.87,47.61,pix,61,F
+CLI00097,Ana Santos,2026-08-28,LJ02,Rio de Janeiro,Picole,Morango,2,5.4,10.8,pix,20,M
+CLI00062,Otavio Souza,2026-08-28,LJ02,Rio de Janeiro,Sorvete Pote,Chocolate,2,29.72,59.44,pix,71,M
+CLI00126,Sabrina Oliveira,2026-08-28,LJ02,Rio de Janeiro,Picole,Coco,2,5.07,10.14,cartao,28,F
+CLI00091,Gabriela Martins,2026-08-28,LJ02,Rio de Janeiro,Agua de Coco,Coco,1,8.4,8.4,pix,37,F
+CLI00034,Sabrina Rodrigues,2026-08-28,LJ02,Rio de Janeiro,Picole,Morango,5,5.9,29.5,cartao,65,M
+CLI00140,Mariana Souza,2026-08-28,LJ02,Rio de Janeiro,Sorvete Pote,Napolitano,5,28.62,143.1,pix,25,M
+CLI00107,Henrique Rodrigues,2026-08-28,LJ03,Curitiba,Picole,Limao,3,5.19,15.57,cartao,26,M
+CLI00085,Carla Souza,2026-08-28,LJ03,Curitiba,Agua de Coco,Coco,2,7.06,14.12,cartao,39,F
+CLI00076,Mariana Santos,2026-08-28,LJ03,Curitiba,Picole,Chocolate,2,5.76,11.52,cartao,72,M
+CLI00134,Karina Santos,2026-08-28,LJ03,Curitiba,Sorvete Pote,Baunilha,2,19.06,38.12,pix,68,M
+CLI00134,Karina Santos,2026-08-28,LJ03,Curitiba,Agua de Coco,Coco,5,6.12,30.6,cartao,68,M
+CLI00070,Gabriela Rodrigues,2026-08-28,LJ03,Curitiba,Agua de Coco,Coco,2,7.61,15.22,pix,29,Outro
+CLI00137,Patricia Carvalho,2026-08-28,LJ03,Curitiba,Milkshake,Ovomaltine,1,13.31,13.31,pix,70,M
+CLI00063,Otavio Lima,2026-08-28,LJ03,Curitiba,Picole,Morango,2,6.13,12.26,cartao,22,F
+CLI00143,Sabrina Souza,2026-08-28,LJ03,Curitiba,Agua de Coco,Coco,2,6.63,13.26,pix,70,F
+CLI00005,Vanessa Silva,2026-08-28,LJ03,Curitiba,Sorvete Pote,Napolitano,4,25.32,101.28,pix,51,F
+CLI00033,Sabrina Silva,2026-08-28,LJ03,Curitiba,Agua de Coco,Coco,5,7.17,35.85,cartao,59,M
+CLI00139,Gabriela Martins,2026-08-28,LJ03,Curitiba,Milkshake,Morango,4,12.58,50.32,cartao,60,F
+CLI00008,Nathan Ferreira,2026-08-28,LJ04,Fortaleza,Sorvete Pote,Morango,1,25.08,25.08,cartao,33,F
+CLI00115,Isabela Oliveira,2026-08-28,LJ04,Fortaleza,Sorvete Pote,Baunilha,4,31.58,126.32,pix,53,Outro
+CLI00105,Nathan Silva,2026-08-28,LJ04,Fortaleza,Sorvete Pote,Morango,2,21.72,43.44,cartao,27,M
+CLI00095,Eduarda Gomes,2026-08-28,LJ04,Fortaleza,Agua de Coco,Coco,3,8.67,26.01,pix,32,F
+CLI00050,Thiago Lima,2026-08-28,LJ04,Fortaleza,Sorvete Pote,Napolitano,4,27.02,108.08,pix,30,M
+CLI00015,Joao Santos,2026-08-28,LJ04,Fortaleza,Milkshake,Baunilha,2,13.36,26.72,cartao,70,F
+CLI00150,Isabela Lima,2026-08-28,LJ04,Fortaleza,Agua de Coco,Coco,1,8.82,8.82,cartao,47,M
+CLI00057,Nathan Ferreira,2026-08-28,LJ04,Fortaleza,Sorvete Pote,Morango,5,22.82,114.1,cartao,43,F
+CLI00006,Sabrina Almeida,2026-08-28,LJ04,Fortaleza,Milkshake,Morango,3,12.17,36.51,pix,30,F
+CLI00085,Carla Souza,2026-08-28,LJ04,Fortaleza,Milkshake,Baunilha,3,15.63,46.89,cartao,39,F
+CLI00058,Bruno Gomes,2026-08-28,LJ04,Fortaleza,Agua de Coco,Coco,1,6.88,6.88,pix,57,Outro
+CLI00107,Henrique Rodrigues,2026-08-28,LJ04,Fortaleza,Agua de Coco,Coco,3,8.37,25.11,cartao,26,M
+CLI00103,Nathan Carvalho,2026-08-28,LJ05,Porto Alegre,Agua de Coco,Coco,5,7.17,35.85,cartao,63,F
+CLI00098,Eduarda Lima,2026-08-28,LJ05,Porto Alegre,Picole,Limao,3,5.53,16.59,pix,18,M
+CLI00111,Henrique Souza,2026-08-28,LJ05,Porto Alegre,Agua de Coco,Coco,2,6.56,13.12,pix,17,M
+CLI00019,Vanessa Gomes,2026-08-28,LJ05,Porto Alegre,Sorvete Pote,Baunilha,5,26.43,132.15,cartao,26,M
+CLI00137,Patricia Carvalho,2026-08-28,LJ05,Porto Alegre,Agua de Coco,Coco,1,6.03,6.03,cartao,70,M
+CLI00042,Joao Souza,2026-08-28,LJ05,Porto Alegre,Sorvete Pote,Baunilha,3,26.16,78.48,dinheiro,19,F
+CLI00072,Karina Silva,2026-08-28,LJ05,Porto Alegre,Sorvete Pote,Napolitano,3,18.44,55.32,cartao,19,M
+CLI00007,Isabela Silva,2026-08-28,LJ05,Porto Alegre,Milkshake,Morango,1,12.34,12.34,pix,64,M
+CLI00058,Bruno Gomes,2026-08-28,LJ05,Porto Alegre,Sorvete Pote,Chocolate,1,21.38,21.38,cartao,57,Outro
+CLI00128,Vanessa Carvalho,2026-08-28,LJ05,Porto Alegre,Picole,Coco,2,5.59,11.18,pix,35,F
+CLI00109,Patricia Souza,2026-08-29,LJ01,Sao Paulo,Picole,Limao,5,6.05,30.25,pix,28,M
+CLI00010,Lucas Ferreira,2026-08-29,LJ01,Sao Paulo,Picole,Chocolate,3,6.14,18.42,pix,54,F
+CLI00118,Vanessa Lima,2026-08-29,LJ01,Sao Paulo,Milkshake,Morango,3,13.61,40.83,pix,23,F
+CLI00034,Sabrina Rodrigues,2026-08-29,LJ01,Sao Paulo,Agua de Coco,Coco,2,7.53,15.06,cartao,65,M
+CLI00019,Vanessa Gomes,2026-08-29,LJ01,Sao Paulo,Milkshake,Ovomaltine,3,14.43,43.29,dinheiro,26,M
+CLI00095,Eduarda Gomes,2026-08-29,LJ01,Sao Paulo,Agua de Coco,Coco,3,8.88,26.64,cartao,32,F
+CLI00146,Otavio Carvalho,2026-08-29,LJ01,Sao Paulo,Milkshake,Baunilha,3,12.1,36.3,cartao,68,M
+CLI00083,Thiago Santos,2026-08-29,LJ01,Sao Paulo,Sorvete Pote,Napolitano,2,25.88,51.76,pix,20,M
+CLI00114,Sabrina Ferreira,2026-08-29,LJ01,Sao Paulo,Picole,Limao,5,5.23,26.15,pix,17,F
+CLI00020,Henrique Oliveira,2026-08-29,LJ01,Sao Paulo,Sorvete Pote,Baunilha,2,27.66,55.32,pix,45,F
+CLI00094,Isabela Silva,2026-08-29,LJ01,Sao Paulo,Sorvete Pote,Chocolate,4,30.52,122.08,cartao,16,F
+CLI00042,Joao Souza,2026-08-29,LJ02,Rio de Janeiro,Picole,Coco,3,4.69,14.07,pix,19,F
+CLI00048,Lucas Pereira,2026-08-29,LJ02,Rio de Janeiro,Picole,Limao,3,5.48,16.44,pix,49,F
+CLI00082,Carla Silva,2026-08-29,LJ02,Rio de Janeiro,Sorvete Pote,Chocolate,2,18.57,37.14,pix,45,M
+CLI00122,Gabriela Ferreira,2026-08-29,LJ02,Rio de Janeiro,Agua de Coco,Coco,4,6.61,26.44,cartao,43,F
+CLI00141,Ana Santos,2026-08-29,LJ02,Rio de Janeiro,Sorvete Pote,Baunilha,1,20.64,20.64,cartao,65,F
+CLI00062,Otavio Souza,2026-08-29,LJ02,Rio de Janeiro,Sorvete Pote,Chocolate,2,28.33,56.66,pix,71,M
+CLI00074,Rafael Santos,2026-08-29,LJ02,Rio de Janeiro,Picole,Morango,5,4.9,24.5,cartao,70,F
+CLI00060,Daniel Souza,2026-08-29,LJ02,Rio de Janeiro,Milkshake,Chocolate,5,13.0,65.0,pix,28,F
+CLI00023,Karina Almeida,2026-08-29,LJ02,Rio de Janeiro,Picole,Limao,2,5.21,10.42,dinheiro,33,F
+CLI00082,Carla Silva,2026-08-29,LJ02,Rio de Janeiro,Picole,Chocolate,3,6.35,19.05,cartao,45,M
+CLI00065,Henrique Oliveira,2026-08-29,LJ02,Rio de Janeiro,Picole,Morango,2,6.31,12.62,cartao,42,M
+CLI00078,Nathan Gomes,2026-08-29,LJ02,Rio de Janeiro,Agua de Coco,Coco,1,7.66,7.66,dinheiro,53,M
+CLI00023,Karina Almeida,2026-08-29,LJ02,Rio de Janeiro,Picole,Morango,3,5.98,17.94,pix,33,F
+CLI00068,Otavio Rodrigues,2026-08-29,LJ02,Rio de Janeiro,Milkshake,Ovomaltine,1,12.81,12.81,dinheiro,43,M
+CLI00046,Vanessa Almeida,2026-08-29,LJ03,Curitiba,Agua de Coco,Coco,5,7.25,36.25,pix,29,M
+CLI00127,Mariana Gomes,2026-08-29,LJ03,Curitiba,Sorvete Pote,Baunilha,2,19.62,39.24,pix,63,M
+CLI00039,Eduarda Ferreira,2026-08-29,LJ03,Curitiba,Picole,Morango,5,4.67,23.35,pix,64,F
+CLI00129,Ana Rodrigues,2026-08-29,LJ03,Curitiba,Picole,Morango,1,4.68,4.68,dinheiro,34,F
+CLI00079,Karina Rodrigues,2026-08-29,LJ03,Curitiba,Picole,Morango,5,5.55,27.75,dinheiro,29,M
+CLI00013,Vanessa Ferreira,2026-08-29,LJ03,Curitiba,Picole,Coco,4,5.1,20.4,cartao,52,F
+CLI00041,Ana Santos,2026-08-29,LJ03,Curitiba,Sorvete Pote,Chocolate,5,19.51,97.55,dinheiro,39,M
+CLI00010,Lucas Ferreira,2026-08-29,LJ03,Curitiba,Sorvete Pote,Chocolate,2,20.69,41.38,cartao,54,F
+CLI00144,Eduarda Pereira,2026-08-29,LJ03,Curitiba,Sorvete Pote,Chocolate,4,31.43,125.72,pix,58,M
+CLI00111,Henrique Souza,2026-08-29,LJ03,Curitiba,Agua de Coco,Coco,1,8.98,8.98,pix,17,M
+CLI00124,Daniel Martins,2026-08-29,LJ03,Curitiba,Picole,Chocolate,2,5.88,11.76,dinheiro,35,M
+CLI00024,Thiago Martins,2026-08-29,LJ03,Curitiba,Picole,Coco,3,4.57,13.71,pix,36,F
+CLI00062,Otavio Souza,2026-08-29,LJ04,Fortaleza,Sorvete Pote,Morango,1,28.69,28.69,pix,71,M
+CLI00070,Gabriela Rodrigues,2026-08-29,LJ04,Fortaleza,Milkshake,Baunilha,4,12.11,48.44,cartao,29,Outro
+CLI00020,Henrique Oliveira,2026-08-29,LJ04,Fortaleza,Milkshake,Ovomaltine,4,13.38,53.52,cartao,45,F
+CLI00117,Lucas Martins,2026-08-29,LJ04,Fortaleza,Milkshake,Morango,3,14.83,44.49,cartao,66,F
+CLI00039,Eduarda Ferreira,2026-08-29,LJ04,Fortaleza,Sorvete Pote,Chocolate,4,28.58,114.32,pix,64,F
+CLI00031,Nathan Carvalho,2026-08-29,LJ04,Fortaleza,Agua de Coco,Coco,2,7.99,15.98,cartao,20,F
+CLI00020,Henrique Oliveira,2026-08-29,LJ04,Fortaleza,Picole,Chocolate,3,6.04,18.12,cartao,45,F
+CLI00049,Henrique Souza,2026-08-29,LJ05,Porto Alegre,Agua de Coco,Coco,1,7.27,7.27,cartao,20,F
+CLI00006,Sabrina Almeida,2026-08-29,LJ05,Porto Alegre,Picole,Limao,5,5.72,28.6,cartao,30,F
+CLI00102,Daniel Ferreira,2026-08-29,LJ05,Porto Alegre,Agua de Coco,Coco,2,8.96,17.92,pix,65,M
+CLI00056,Patricia Almeida,2026-08-29,LJ05,Porto Alegre,Agua de Coco,Coco,1,7.48,7.48,cartao,28,F
+CLI00134,Karina Santos,2026-08-29,LJ05,Porto Alegre,Picole,Chocolate,5,5.49,27.45,pix,68,M
+CLI00071,Thiago Martins,2026-08-29,LJ05,Porto Alegre,Picole,Coco,2,5.0,10.0,pix,50,F
+CLI00056,Patricia Almeida,2026-08-30,LJ01,Sao Paulo,Picole,Coco,3,6.28,18.84,cartao,28,F
+CLI00076,Mariana Santos,2026-08-30,LJ01,Sao Paulo,Milkshake,Morango,5,15.5,77.5,pix,72,M
+CLI00063,Otavio Lima,2026-08-30,LJ01,Sao Paulo,Agua de Coco,Coco,5,8.2,41.0,dinheiro,22,F
+CLI00127,Mariana Gomes,2026-08-30,LJ01,Sao Paulo,Sorvete Pote,Morango,5,29.91,149.55,cartao,63,M
+CLI00139,Gabriela Martins,2026-08-30,LJ01,Sao Paulo,Sorvete Pote,Baunilha,5,31.24,156.2,pix,60,F
+CLI00092,Isabela Lima,2026-08-30,LJ01,Sao Paulo,Milkshake,Chocolate,2,14.48,28.96,pix,47,F
+CLI00148,Otavio Oliveira,2026-08-30,LJ01,Sao Paulo,Agua de Coco,Coco,2,8.76,17.52,cartao,63,M
+CLI00043,Thiago Santos,2026-08-30,LJ01,Sao Paulo,Sorvete Pote,Napolitano,4,25.6,102.4,pix,21,M
+CLI00141,Ana Santos,2026-08-30,LJ01,Sao Paulo,Agua de Coco,Coco,4,8.63,34.52,pix,65,F
+CLI00038,Joao Gomes,2026-08-30,LJ01,Sao Paulo,Sorvete Pote,Chocolate,1,21.61,21.61,pix,48,M
+CLI00066,Gabriela Almeida,2026-08-30,LJ02,Rio de Janeiro,Agua de Coco,Coco,5,6.93,34.65,cartao,19,F
+CLI00071,Thiago Martins,2026-08-30,LJ02,Rio de Janeiro,Agua de Coco,Coco,3,6.29,18.87,pix,50,F
+CLI00126,Sabrina Oliveira,2026-08-30,LJ02,Rio de Janeiro,Picole,Morango,1,5.3,5.3,pix,28,F
+CLI00118,Vanessa Lima,2026-08-30,LJ02,Rio de Janeiro,Milkshake,Baunilha,2,14.3,28.6,cartao,23,F
+CLI00103,Nathan Carvalho,2026-08-30,LJ02,Rio de Janeiro,Picole,Chocolate,3,5.22,15.66,pix,63,F
+CLI00002,Henrique Oliveira,2026-08-30,LJ02,Rio de Janeiro,Picole,Chocolate,3,5.01,15.03,pix,63,F
+CLI00095,Eduarda Gomes,2026-08-30,LJ02,Rio de Janeiro,Agua de Coco,Coco,5,6.34,31.7,pix,32,F
+CLI00055,Thiago Carvalho,2026-08-30,LJ02,Rio de Janeiro,Agua de Coco,Coco,1,7.24,7.24,cartao,46,F
+CLI00031,Nathan Carvalho,2026-08-30,LJ02,Rio de Janeiro,Picole,Limao,4,6.33,25.32,pix,20,F
+CLI00097,Ana Santos,2026-08-30,LJ02,Rio de Janeiro,Picole,Chocolate,5,5.72,28.6,cartao,20,M
+CLI00006,Sabrina Almeida,2026-08-30,LJ02,Rio de Janeiro,Milkshake,Baunilha,3,14.84,44.52,pix,30,F
+CLI00098,Eduarda Lima,2026-08-30,LJ02,Rio de Janeiro,Milkshake,Baunilha,2,14.97,29.94,cartao,18,M
+CLI00098,Eduarda Lima,2026-08-30,LJ03,Curitiba,Milkshake,Morango,4,13.81,55.24,pix,18,M
+CLI00007,Isabela Silva,2026-08-30,LJ03,Curitiba,Sorvete Pote,Baunilha,3,26.85,80.55,cartao,64,M
+CLI00072,Karina Silva,2026-08-30,LJ03,Curitiba,Milkshake,Baunilha,4,15.15,60.6,pix,19,M
+CLI00003,Sabrina Santos,2026-08-30,LJ03,Curitiba,Sorvete Pote,Chocolate,1,19.3,19.3,cartao,53,F
+CLI00036,Ana Martins,2026-08-30,LJ03,Curitiba,Sorvete Pote,Napolitano,2,31.39,62.78,cartao,72,M
+CLI00097,Ana Santos,2026-08-30,LJ03,Curitiba,Agua de Coco,Coco,2,8.07,16.14,cartao,20,M
+CLI00054,Patricia Souza,2026-08-30,LJ03,Curitiba,Agua de Coco,Coco,5,7.1,35.5,pix,50,F
+CLI00149,Otavio Rodrigues,2026-08-30,LJ03,Curitiba,Milkshake,Ovomaltine,1,15.92,15.92,dinheiro,64,F
+CLI00050,Thiago Lima,2026-08-30,LJ03,Curitiba,Milkshake,Chocolate,5,14.29,71.45,cartao,30,M
+CLI00009,Karina Santos,2026-08-30,LJ04,Fortaleza,Picole,Chocolate,2,5.32,10.64,pix,21,F
+CLI00005,Vanessa Silva,2026-08-30,LJ04,Fortaleza,Sorvete Pote,Baunilha,5,26.8,134.0,cartao,51,F
+CLI00070,Gabriela Rodrigues,2026-08-30,LJ04,Fortaleza,Sorvete Pote,Napolitano,4,18.47,73.88,cartao,29,Outro
+CLI00045,Patricia Lima,2026-08-30,LJ04,Fortaleza,Agua de Coco,Coco,5,7.01,35.05,pix,26,F
+CLI00079,Karina Rodrigues,2026-08-30,LJ04,Fortaleza,Sorvete Pote,Baunilha,3,21.99,65.97,cartao,29,M
+CLI00110,Otavio Ferreira,2026-08-30,LJ04,Fortaleza,Milkshake,Baunilha,2,15.34,30.68,cartao,35,M
+CLI00091,Gabriela Martins,2026-08-30,LJ04,Fortaleza,Agua de Coco,Coco,4,7.03,28.12,cartao,37,F
+CLI00002,Henrique Oliveira,2026-08-30,LJ04,Fortaleza,Picole,Chocolate,4,6.43,25.72,pix,63,F
+CLI00115,Isabela Oliveira,2026-08-30,LJ04,Fortaleza,Sorvete Pote,Baunilha,3,24.45,73.35,pix,53,Outro
+CLI00082,Carla Silva,2026-08-30,LJ04,Fortaleza,Sorvete Pote,Morango,3,27.44,82.32,cartao,45,M
+CLI00055,Thiago Carvalho,2026-08-30,LJ04,Fortaleza,Sorvete Pote,Morango,4,21.9,87.6,cartao,46,F
+CLI00024,Thiago Martins,2026-08-30,LJ05,Porto Alegre,Picole,Chocolate,1,5.39,5.39,cartao,36,F
+CLI00143,Sabrina Souza,2026-08-30,LJ05,Porto Alegre,Picole,Morango,5,5.07,25.35,cartao,70,F
+CLI00115,Isabela Oliveira,2026-08-30,LJ05,Porto Alegre,Agua de Coco,Coco,2,6.12,12.24,pix,53,Outro
+CLI00145,Sabrina Carvalho,2026-08-30,LJ05,Porto Alegre,Milkshake,Baunilha,1,14.8,14.8,pix,36,M
+CLI00045,Patricia Lima,2026-08-30,LJ05,Porto Alegre,Sorvete Pote,Baunilha,3,28.83,86.49,cartao,26,F
+CLI00052,Henrique Santos,2026-08-30,LJ05,Porto Alegre,Sorvete Pote,Napolitano,2,27.44,54.88,cartao,18,M
+CLI00092,Isabela Lima,2026-08-30,LJ05,Porto Alegre,Agua de Coco,Coco,5,8.98,44.9,pix,47,F
+CLI00054,Patricia Souza,2026-08-30,LJ05,Porto Alegre,Picole,Morango,4,6.27,25.08,cartao,50,F
+CLI00071,Thiago Martins,2026-08-30,LJ05,Porto Alegre,Agua de Coco,Coco,1,8.48,8.48,cartao,50,F
+CLI00133,Joao Lima,2026-08-30,LJ05,Porto Alegre,Sorvete Pote,Chocolate,5,30.11,150.55,cartao,58,M
+CLI00010,Lucas Ferreira,2026-08-30,LJ05,Porto Alegre,Milkshake,Chocolate,1,13.95,13.95,dinheiro,54,F
+CLI00031,Nathan Carvalho,2026-08-30,LJ05,Porto Alegre,Picole,Coco,1,4.65,4.65,cartao,20,F
+CLI00066,Gabriela Almeida,2026-08-30,LJ05,Porto Alegre,Milkshake,Ovomaltine,1,15.87,15.87,dinheiro,19,F
+CLI00062,Otavio Souza,2026-08-31,LJ01,Sao Paulo,Picole,Coco,3,6.1,18.3,pix,71,M
+CLI00078,Nathan Gomes,2026-08-31,LJ01,Sao Paulo,Agua de Coco,Coco,5,8.75,43.75,cartao,53,M
+CLI00048,Lucas Pereira,2026-08-31,LJ01,Sao Paulo,Sorvete Pote,Napolitano,4,31.59,126.36,cartao,49,F
+CLI00127,Mariana Gomes,2026-08-31,LJ01,Sao Paulo,Agua de Coco,Coco,1,7.41,7.41,cartao,63,M
+CLI00031,Nathan Carvalho,2026-08-31,LJ01,Sao Paulo,Sorvete Pote,Baunilha,2,20.42,40.84,pix,20,F
+CLI00041,Ana Santos,2026-08-31,LJ01,Sao Paulo,Picole,Chocolate,5,6.44,32.2,pix,39,M
+CLI00104,Henrique Oliveira,2026-08-31,LJ01,Sao Paulo,Agua de Coco,Coco,5,7.23,36.15,cartao,67,M
+CLI00106,Karina Almeida,2026-08-31,LJ01,Sao Paulo,Picole,Morango,5,5.36,26.8,pix,67,M
+CLI00141,Ana Santos,2026-08-31,LJ01,Sao Paulo,Sorvete Pote,Baunilha,4,18.88,75.52,pix,65,F
+CLI00104,Henrique Oliveira,2026-08-31,LJ01,Sao Paulo,Sorvete Pote,Chocolate,1,29.61,29.61,pix,67,M
+CLI00121,Sabrina Gomes,2026-08-31,LJ01,Sao Paulo,Picole,Chocolate,4,4.59,18.36,pix,62,M
+CLI00125,Nathan Ferreira,2026-08-31,LJ01,Sao Paulo,Picole,Coco,4,6.0,24.0,dinheiro,41,M
+CLI00058,Bruno Gomes,2026-08-31,LJ01,Sao Paulo,Sorvete Pote,Chocolate,4,29.21,116.84,pix,57,Outro
+CLI00147,Rafael Almeida,2026-08-31,LJ01,Sao Paulo,Sorvete Pote,Baunilha,5,21.8,109.0,pix,69,M
+CLI00126,Sabrina Oliveira,2026-08-31,LJ02,Rio de Janeiro,Milkshake,Ovomaltine,4,15.74,62.96,pix,28,F
+CLI00105,Nathan Silva,2026-08-31,LJ02,Rio de Janeiro,Milkshake,Chocolate,4,15.19,60.76,pix,27,M
+CLI00088,Joao Gomes,2026-08-31,LJ02,Rio de Janeiro,Agua de Coco,Coco,4,6.4,25.6,cartao,22,M
+CLI00102,Daniel Ferreira,2026-08-31,LJ02,Rio de Janeiro,Milkshake,Baunilha,1,15.09,15.09,cartao,65,M
+CLI00042,Joao Souza,2026-08-31,LJ02,Rio de Janeiro,Picole,Coco,5,5.04,25.2,cartao,19,F
+CLI00148,Otavio Oliveira,2026-08-31,LJ02,Rio de Janeiro,Milkshake,Chocolate,1,12.78,12.78,cartao,63,M
+CLI00034,Sabrina Rodrigues,2026-08-31,LJ02,Rio de Janeiro,Sorvete Pote,Chocolate,2,24.12,48.24,pix,65,M
+CLI00102,Daniel Ferreira,2026-08-31,LJ02,Rio de Janeiro,Sorvete Pote,Chocolate,2,19.75,39.5,cartao,65,M
+CLI00066,Gabriela Almeida,2026-08-31,LJ02,Rio de Janeiro,Milkshake,Morango,3,15.81,47.43,pix,19,F
+CLI00062,Otavio Souza,2026-08-31,LJ02,Rio de Janeiro,Picole,Chocolate,4,6.01,24.04,pix,71,M
+CLI00011,Bruno Martins,2026-08-31,LJ02,Rio de Janeiro,Agua de Coco,Coco,3,6.26,18.78,cartao,45,M
+CLI00088,Joao Gomes,2026-08-31,LJ02,Rio de Janeiro,Sorvete Pote,Morango,3,24.51,73.53,cartao,22,M
+CLI00032,Vanessa Pereira,2026-08-31,LJ03,Curitiba,Sorvete Pote,Baunilha,5,20.8,104.0,dinheiro,49,F
+CLI00007,Isabela Silva,2026-08-31,LJ03,Curitiba,Picole,Limao,2,5.3,10.6,cartao,64,M
+CLI00054,Patricia Souza,2026-08-31,LJ03,Curitiba,Sorvete Pote,Morango,4,24.08,96.32,pix,50,F
+CLI00067,Ana Almeida,2026-08-31,LJ03,Curitiba,Sorvete Pote,Morango,5,31.21,156.05,cartao,32,M
+CLI00041,Ana Santos,2026-08-31,LJ03,Curitiba,Sorvete Pote,Napolitano,2,30.53,61.06,pix,39,M
+CLI00128,Vanessa Carvalho,2026-08-31,LJ03,Curitiba,Sorvete Pote,Morango,3,28.51,85.53,pix,35,F
+CLI00027,Sabrina Lima,2026-08-31,LJ03,Curitiba,Picole,Morango,2,5.93,11.86,pix,32,M
+CLI00002,Henrique Oliveira,2026-08-31,LJ03,Curitiba,Milkshake,Morango,2,13.0,26.0,pix,63,F
+CLI00053,Carla Lima,2026-08-31,LJ03,Curitiba,Agua de Coco,Coco,3,6.59,19.77,pix,31,F
+CLI00051,Ana Santos,2026-08-31,LJ03,Curitiba,Picole,Morango,5,5.06,25.3,cartao,61,M
+CLI00022,Bruno Souza,2026-08-31,LJ03,Curitiba,Sorvete Pote,Baunilha,4,30.47,121.88,pix,68,F
+CLI00119,Thiago Souza,2026-08-31,LJ04,Fortaleza,Sorvete Pote,Napolitano,1,26.29,26.29,cartao,32,F
+CLI00030,Bruno Santos,2026-08-31,LJ04,Fortaleza,Agua de Coco,Coco,5,7.98,39.9,cartao,25,M
+CLI00005,Vanessa Silva,2026-08-31,LJ04,Fortaleza,Agua de Coco,Coco,3,8.53,25.59,cartao,51,F
+CLI00079,Karina Rodrigues,2026-08-31,LJ04,Fortaleza,Milkshake,Morango,1,13.47,13.47,cartao,29,M
+CLI00057,Nathan Ferreira,2026-08-31,LJ04,Fortaleza,Agua de Coco,Coco,4,6.87,27.48,cartao,43,F
+CLI00053,Carla Lima,2026-08-31,LJ04,Fortaleza,Sorvete Pote,Napolitano,2,27.07,54.14,dinheiro,31,F
+CLI00110,Otavio Ferreira,2026-08-31,LJ04,Fortaleza,Milkshake,Morango,3,14.9,44.7,pix,35,M
+CLI00135,Henrique Gomes,2026-08-31,LJ04,Fortaleza,Sorvete Pote,Chocolate,2,26.45,52.9,dinheiro,35,F
+CLI00120,Nathan Silva,2026-08-31,LJ04,Fortaleza,Sorvete Pote,Morango,1,27.71,27.71,pix,49,M
+CLI00061,Otavio Oliveira,2026-08-31,LJ04,Fortaleza,Sorvete Pote,Chocolate,5,25.14,125.7,dinheiro,43,F
+CLI00089,Eduarda Rodrigues,2026-08-31,LJ05,Porto Alegre,Milkshake,Chocolate,1,12.51,12.51,pix,23,M
+CLI00102,Daniel Ferreira,2026-08-31,LJ05,Porto Alegre,Agua de Coco,Coco,5,7.21,36.05,pix,65,M
+CLI00104,Henrique Oliveira,2026-08-31,LJ05,Porto Alegre,Agua de Coco,Coco,3,7.48,22.44,cartao,67,M
+CLI00024,Thiago Martins,2026-08-31,LJ05,Porto Alegre,Milkshake,Ovomaltine,2,12.57,25.14,dinheiro,36,F
+CLI00092,Isabela Lima,2026-08-31,LJ05,Porto Alegre,Picole,Chocolate,2,5.56,11.12,pix,47,F
+CLI00080,Karina Souza,2026-08-31,LJ05,Porto Alegre,Sorvete Pote,Napolitano,4,20.36,81.44,pix,32,F
+CLI00084,Rafael Rodrigues,2026-08-31,LJ05,Porto Alegre,Milkshake,Ovomaltine,2,15.63,31.26,cartao,24,M
+CLI00076,Mariana Santos,2026-08-31,LJ05,Porto Alegre,Sorvete Pote,Napolitano,2,26.35,52.7,pix,72,M
+CLI00087,Rafael Silva,2026-08-31,LJ05,Porto Alegre,Milkshake,Chocolate,2,14.23,28.46,cartao,58,M
+CLI00083,Thiago Santos,2026-08-31,LJ05,Porto Alegre,Milkshake,Ovomaltine,3,13.74,41.22,cartao,20,M
+CLI00051,Ana Santos,2026-08-31,LJ05,Porto Alegre,Picole,Coco,1,5.53,5.53,pix,61,M
+CLI00009,Karina Santos,2026-08-31,LJ05,Porto Alegre,Picole,Morango,1,4.53,4.53,pix,21,F
+CLI00053,Carla Lima,2026-09-01,LJ01,Sao Paulo,Agua de Coco,Coco,2,8.05,16.1,pix,31,F
+CLI00090,Sabrina Oliveira,2026-09-01,LJ01,Sao Paulo,Agua de Coco,Coco,2,8.16,16.32,pix,33,F
+CLI00044,Carla Lima,2026-09-01,LJ01,Sao Paulo,Sorvete Pote,Baunilha,5,24.33,121.65,dinheiro,65,F
+CLI00055,Thiago Carvalho,2026-09-01,LJ01,Sao Paulo,Picole,Coco,4,4.51,18.04,pix,46,F
+CLI00149,Otavio Rodrigues,2026-09-01,LJ01,Sao Paulo,Picole,Chocolate,5,4.52,22.6,cartao,64,F
+CLI00133,Joao Lima,2026-09-01,LJ01,Sao Paulo,Agua de Coco,Coco,1,8.24,8.24,pix,58,M
+CLI00040,Rafael Silva,2026-09-01,LJ01,Sao Paulo,Agua de Coco,Coco,3,8.77,26.31,cartao,54,F
+CLI00143,Sabrina Souza,2026-09-01,LJ01,Sao Paulo,Sorvete Pote,Napolitano,5,23.0,115.0,cartao,70,F
+CLI00072,Karina Silva,2026-09-01,LJ01,Sao Paulo,Picole,Coco,4,6.09,24.36,dinheiro,19,M
+CLI00006,Sabrina Almeida,2026-09-01,LJ01,Sao Paulo,Sorvete Pote,Napolitano,1,30.86,30.86,pix,30,F
+CLI00094,Isabela Silva,2026-09-01,LJ01,Sao Paulo,Picole,Chocolate,3,5.2,15.6,cartao,16,F
+CLI00064,Sabrina Silva,2026-09-01,LJ01,Sao Paulo,Milkshake,Ovomaltine,4,15.85,63.4,pix,21,M
+CLI00066,Gabriela Almeida,2026-09-01,LJ01,Sao Paulo,Agua de Coco,Coco,2,7.62,15.24,cartao,19,F
+CLI00084,Rafael Rodrigues,2026-09-01,LJ02,Rio de Janeiro,Sorvete Pote,Chocolate,3,23.45,70.35,cartao,24,M
+CLI00023,Karina Almeida,2026-09-01,LJ02,Rio de Janeiro,Sorvete Pote,Napolitano,5,29.18,145.9,pix,33,F
+CLI00116,Isabela Silva,2026-09-01,LJ02,Rio de Janeiro,Agua de Coco,Coco,5,7.59,37.95,cartao,22,M
+CLI00129,Ana Rodrigues,2026-09-01,LJ02,Rio de Janeiro,Sorvete Pote,Napolitano,3,21.44,64.32,pix,34,F
+CLI00091,Gabriela Martins,2026-09-01,LJ02,Rio de Janeiro,Picole,Coco,5,5.14,25.7,pix,37,F
+CLI00129,Ana Rodrigues,2026-09-01,LJ02,Rio de Janeiro,Picole,Coco,2,5.99,11.98,pix,34,F
+CLI00062,Otavio Souza,2026-09-01,LJ03,Curitiba,Picole,Coco,3,5.29,15.87,dinheiro,71,M
+CLI00043,Thiago Santos,2026-09-01,LJ03,Curitiba,Milkshake,Morango,3,15.1,45.3,pix,21,M
+CLI00092,Isabela Lima,2026-09-01,LJ03,Curitiba,Milkshake,Ovomaltine,5,13.32,66.6,pix,47,F
+CLI00048,Lucas Pereira,2026-09-01,LJ03,Curitiba,Picole,Limao,4,4.56,18.24,pix,49,F
+CLI00130,Thiago Carvalho,2026-09-01,LJ03,Curitiba,Agua de Coco,Coco,1,7.56,7.56,pix,57,F
+CLI00054,Patricia Souza,2026-09-01,LJ03,Curitiba,Milkshake,Baunilha,4,14.49,57.96,cartao,50,F
+CLI00110,Otavio Ferreira,2026-09-01,LJ03,Curitiba,Picole,Limao,5,6.1,30.5,pix,35,M
+CLI00123,Karina Carvalho,2026-09-01,LJ03,Curitiba,Agua de Coco,Coco,4,6.83,27.32,cartao,36,M
+CLI00021,Sabrina Souza,2026-09-01,LJ04,Fortaleza,Agua de Coco,Coco,2,6.53,13.06,cartao,59,F
+CLI00012,Mariana Santos,2026-09-01,LJ04,Fortaleza,Sorvete Pote,Napolitano,3,31.71,95.13,cartao,51,F
+CLI00105,Nathan Silva,2026-09-01,LJ04,Fortaleza,Picole,Chocolate,1,6.08,6.08,pix,27,M
+CLI00032,Vanessa Pereira,2026-09-01,LJ04,Fortaleza,Milkshake,Morango,2,12.87,25.74,pix,49,F
+CLI00140,Mariana Souza,2026-09-01,LJ04,Fortaleza,Agua de Coco,Coco,1,6.3,6.3,pix,25,M
+CLI00132,Patricia Martins,2026-09-01,LJ04,Fortaleza,Milkshake,Baunilha,1,15.07,15.07,pix,26,M
+CLI00043,Thiago Santos,2026-09-01,LJ04,Fortaleza,Milkshake,Ovomaltine,2,15.16,30.32,pix,21,M
+CLI00008,Nathan Ferreira,2026-09-01,LJ05,Porto Alegre,Picole,Morango,3,6.12,18.36,cartao,33,F
+CLI00025,Patricia Almeida,2026-09-01,LJ05,Porto Alegre,Picole,Limao,5,4.61,23.05,pix,72,M
+CLI00076,Mariana Santos,2026-09-01,LJ05,Porto Alegre,Picole,Morango,4,5.75,23.0,cartao,72,M
+CLI00010,Lucas Ferreira,2026-09-01,LJ05,Porto Alegre,Milkshake,Baunilha,1,14.3,14.3,dinheiro,54,F
+CLI00057,Nathan Ferreira,2026-09-01,LJ05,Porto Alegre,Agua de Coco,Coco,1,7.5,7.5,cartao,43,F
+CLI00020,Henrique Oliveira,2026-09-01,LJ05,Porto Alegre,Agua de Coco,Coco,5,6.03,30.15,pix,45,F
+CLI00038,Joao Gomes,2026-09-01,LJ05,Porto Alegre,Sorvete Pote,Morango,5,30.7,153.5,cartao,48,M

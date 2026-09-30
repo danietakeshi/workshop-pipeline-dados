@@ -1,0 +1,18 @@
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+
+# Banco DuckDB gerado pelo pipeline (cada aluno gera o seu)
+warehouse/*.duckdb
+warehouse/*.duckdb.wal
+
+# Dados/config do Metabase persistidos pelo docker-compose
+metabase-data/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Config local do Claude Code
+.claude/
