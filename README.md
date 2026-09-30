@@ -132,6 +132,29 @@ Stretch goals (se sobrar tempo): `mart_sabor_temperatura` (sabor mais vendido po
 
 ---
 
+## Guia de apresentação (para quem for ministrar)
+
+`apresentacao/guia-workshop.html` é um painel de apoio para conduzir a aula ao vivo — abra num navegador (funciona offline, é um arquivo único). Ele tem:
+
+- Navegação pelos 8 blocos do roteiro, cada um com objetivo, pontos para falar e os comandos prontos (com botão de copiar)
+- Cronômetro: aperte "Iniciar workshop" no começo da aula e ele mostra se você está no horário, levemente atrasado ou atrasado, comparando o bloco que você marcou como atual com o que o tempo real diz que já deveria estar
+- Atalhos de teclado (← / → ou j / k) pra trocar de bloco sem precisar clicar
+
+Pra editar o conteúdo depois, mexa em `apresentacao/guia-workshop.template.html` e rode `python apresentacao/build.py` (ele reincorpora as fontes embutidas e gera o `guia-workshop.html` final).
+
+## Notebook exploratório (opcional)
+
+`notebooks/explorar_duckdb.ipynb` é um complemento pro pipeline principal — pra quem quiser explorar o dado com mais calma, com gráficos, depois (ou durante) a aula. Ele já vem com 3 exercícios em branco pros alunos tentarem sozinhos.
+
+```bash
+pip install -r requirements-notebook.txt
+jupyter lab notebooks/explorar_duckdb.ipynb
+```
+
+Precisa do `warehouse/workshop.duckdb` já existir (rode `python scripts/run_pipeline.py` antes).
+
+---
+
 ## Estrutura do repositório
 
 ```
@@ -139,6 +162,7 @@ Stretch goals (se sobrar tempo): `mart_sabor_temperatura` (sabor mais vendido po
 ├── README.md                        # este arquivo
 ├── SETUP.md                         # pré-requisitos, enviar antes do evento
 ├── requirements.txt
+├── requirements-notebook.txt         # deps extras só pro notebook exploratório
 ├── docker-compose.yml
 ├── data/
 │   ├── raw/vendas_lojas.csv                 # histórico (schema canônico)
@@ -151,6 +175,13 @@ Stretch goals (se sobrar tempo): `mart_sabor_temperatura` (sabor mais vendido po
 │   ├── transform.sql
 │   ├── run_pipeline.py
 │   └── demo_schema_drift.py
+├── notebooks/
+│   └── explorar_duckdb.ipynb         # exploração opcional + exercícios
+├── apresentacao/
+│   ├── guia-workshop.html            # painel de apoio pra conduzir a aula (abrir no navegador)
+│   ├── guia-workshop.template.html   # fonte editável (sem as fontes embutidas)
+│   ├── build.py                      # gera o .html final a partir do template
+│   └── fonts/                        # fontes usadas no guia (embutidas no build)
 ├── metabase/Dockerfile               # imagem custom (Debian/glibc) com o driver DuckDB
 └── warehouse/                        # workshop.duckdb gerado pelo pipeline (não commitado)
 ```

@@ -1,0 +1,6 @@
+# Dependências extras só para quem for abrir notebooks/explorar_duckdb.ipynb.
+# O pipeline principal (scripts/) não depende disso — ver requirements.txt.
+-r requirements.txt
+jupyterlab>=4.0
+ipykernel>=6.29
+matplotlib>=3.8

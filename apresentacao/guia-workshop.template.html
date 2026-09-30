@@ -1,0 +1,670 @@
+<title>Guia do Workshop — GeloDados</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  @font-face {
+    font-family: "JBMono";
+    src: url(data:font/ttf;base64,{{FONT_REGULAR_B64}}) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "JBMono";
+    src: url(data:font/ttf;base64,{{FONT_BOLD_B64}}) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --bg: #10161c;
+    --surface: #1a222b;
+    --surface-2: #212b36;
+    --border: #2c3947;
+    --text: #e7ecf1;
+    --text-muted: #8fa0af;
+    --accent: #f2994a;
+    --accent-ink: #1a1007;
+    --accent-cool: #46c2d9;
+    --ok: #4ade80;
+    --warn: #fbbf24;
+    --crit: #f87171;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+    --font-display: -apple-system, "Segoe UI Semibold", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-body: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+    --font-mono: "JBMono", "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10161c; --surface: #1a222b; --surface-2: #212b36; --border: #2c3947;
+      --text: #e7ecf1; --text-muted: #8fa0af;
+      --accent: #f2994a; --accent-ink: #1a1007; --accent-cool: #46c2d9;
+      --ok: #4ade80; --warn: #fbbf24; --crit: #f87171;
+    }
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f2f5f7; --surface: #ffffff; --surface-2: #e7ecf0; --border: #d4dce2;
+      --text: #16202b; --text-muted: #5a6b78;
+      --accent: #d9782e; --accent-ink: #fff7ef; --accent-cool: #0e8fa6;
+      --ok: #1e9e5a; --warn: #9a6b00; --crit: #c8362a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10161c; --surface: #1a222b; --surface-2: #212b36; --border: #2c3947;
+    --text: #e7ecf1; --text-muted: #8fa0af;
+    --accent: #f2994a; --accent-ink: #1a1007; --accent-cool: #46c2d9;
+    --ok: #4ade80; --warn: #fbbf24; --crit: #f87171;
+  }
+  :root[data-theme="light"] {
+    --bg: #f2f5f7; --surface: #ffffff; --surface-2: #e7ecf0; --border: #d4dce2;
+    --text: #16202b; --text-muted: #5a6b78;
+    --accent: #d9782e; --accent-ink: #fff7ef; --accent-cool: #0e8fa6;
+    --ok: #1e9e5a; --warn: #9a6b00; --crit: #c8362a;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-cool); }
+  :focus-visible {
+    outline: 2px solid var(--accent-cool);
+    outline-offset: 2px;
+  }
+
+  .app {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+  }
+
+  /* ---------- Topbar ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.9rem 1.5rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .topbar-title { display: flex; flex-direction: column; gap: 0.15rem; margin-right: auto; min-width: 12rem; }
+  .topbar-title h1 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+  .topbar-title .subtitle { font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono); }
+
+  .clock-block { display: flex; align-items: center; gap: 0.9rem; }
+  .clock {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.7rem;
+    min-width: 6.2ch;
+    text-align: center;
+  }
+  .status-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .status-pill[data-state="ok"] { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, var(--border)); }
+  .status-pill[data-state="warn"] { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, var(--border)); }
+  .status-pill[data-state="crit"] { color: var(--crit); border-color: color-mix(in srgb, var(--crit) 45%, var(--border)); }
+  .status-pill[data-state="idle"] { color: var(--text-muted); }
+
+  .btn {
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 0.45rem;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.12s ease;
+  }
+  .btn:hover { background: var(--border); }
+  .btn:active { transform: scale(0.97); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+  .btn.primary:hover { filter: brightness(1.06); }
+
+  .progress-track {
+    flex-basis: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--surface-2);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-cool);
+    transition: width 0.4s linear, background 0.3s ease;
+  }
+  .progress-fill[data-state="warn"] { background: var(--warn); }
+  .progress-fill[data-state="crit"] { background: var(--crit); }
+
+  /* ---------- Layout ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: 19rem 1fr;
+    min-height: 0;
+  }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    .rail { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+
+  .rail {
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    overflow-y: auto;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .rail-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    text-align: left;
+    padding: 0.6rem 0.7rem;
+    border-radius: 0.6rem;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    font-family: var(--font-display);
+  }
+  .rail-item:hover { background: var(--surface-2); }
+  .rail-item[aria-current="true"] {
+    background: var(--surface-2);
+    border-color: var(--border);
+    box-shadow: var(--shadow);
+  }
+  .rail-dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    margin-top: 0.35rem;
+    background: var(--text-muted);
+    box-shadow: 0 0 0 3px transparent;
+  }
+  .rail-item[data-status="current"] .rail-dot {
+    background: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+  .rail-item[data-status="done"] .rail-dot { background: var(--ok); }
+  .rail-item[data-status="behind"] .rail-dot { background: var(--crit); }
+
+  .rail-time {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .rail-name { display: block; font-size: 0.9rem; font-weight: 600; margin-top: 0.1rem; text-wrap: balance; }
+
+  /* ---------- Detail ---------- */
+  .detail {
+    padding: 1.75rem 2rem 3rem;
+    overflow-y: auto;
+    max-width: 52rem;
+  }
+  .detail-head { display: flex; align-items: baseline; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 0.25rem; }
+  .detail-head h2 { margin: 0; font-size: 1.55rem; letter-spacing: -0.01em; text-wrap: balance; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+    white-space: nowrap;
+  }
+  .objective {
+    font-family: var(--font-body);
+    font-size: 1.08rem;
+    line-height: 1.55;
+    color: var(--text);
+    max-width: 42rem;
+    margin: 0.9rem 0 1.6rem;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin: 1.6rem 0 0.6rem;
+  }
+  .talking-points {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 42rem;
+    padding-left: 1.15rem;
+    margin: 0;
+  }
+  .talking-points li { margin-bottom: 0.5rem; }
+
+  .cmd {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.55rem;
+    padding: 0.65rem 0.8rem;
+    margin-bottom: 0.55rem;
+    overflow-x: auto;
+  }
+  .cmd code {
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--accent-cool);
+    white-space: pre;
+  }
+  .cmd-copy {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 0.4rem;
+    padding: 0.3rem 0.55rem;
+    cursor: pointer;
+  }
+  .cmd-copy:hover { color: var(--text); }
+  .cmd-copy[data-copied="true"] { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, var(--border)); }
+
+  .callout {
+    display: flex;
+    gap: 0.7rem;
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+    border-radius: 0.6rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    max-width: 42rem;
+  }
+  .callout .mark { font-family: var(--font-mono); color: var(--accent); flex-shrink: 0; }
+
+  .empty-hint { color: var(--text-muted); font-family: var(--font-body); font-style: italic; }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+
+<div class="app">
+  <header class="topbar">
+    <div class="topbar-title">
+      <h1>Guia do Workshop — GeloDados</h1>
+      <span class="subtitle">Construindo um pipeline de dados · 06/10 · 13:30–15:30</span>
+    </div>
+
+    <div class="clock-block">
+      <span class="clock" id="clock">00:00</span>
+      <span class="status-pill" id="statusPill" data-state="idle">parado</span>
+      <button class="btn" id="btnReset">Reiniciar</button>
+      <button class="btn primary" id="btnStart">Iniciar workshop</button>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="rail" id="rail" aria-label="Blocos do roteiro"></nav>
+    <main class="detail" id="detail"></main>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var BLOCKS = [
+    {
+      start: "13:30", end: "13:40",
+      title: "Abertura",
+      objective: "Situar a turma no que é engenharia de dados no mundo real e apresentar o case do dia.",
+      talkingPoints: [
+        "Quem eu sou e onde a engenharia de dados aparece no dia a dia — DoorDash como exemplo real: pedido, entregador e restaurante viram dado, o dado vira decisão.",
+        "Apresentar a GeloDados: rede fictícia de 5 lojas de sorvete/bebida gelada em capitais brasileiras.",
+        "A pergunta que guia a aula inteira: “Vendemos mais quando está mais quente? Em qual loja o efeito é mais forte?”",
+        "Prometer o final: cada um vai sair com um pipeline rodando do zero, do dado bruto até um dashboard respondendo essa pergunta."
+      ],
+      commands: [],
+      watchout: "Ainda sem código na tela — é só para gerar contexto e curiosidade antes de abrir o terminal."
+    },
+    {
+      start: "13:40", end: "13:50",
+      title: "Setup check",
+      objective: "Confirmar que o ambiente de todo mundo está pronto antes de começar a mexer em código.",
+      talkingPoints: [
+        "Perguntar quem não conseguiu rodar o SETUP.md antes do evento.",
+        "Formar duplas para quem estiver com problema de ambiente — não travar a aula tentando resolver individualmente.",
+        "Confirmar: Python 3.11+, Docker Desktop aberto, repositório clonado."
+      ],
+      commands: [
+        { label: "checar versão do Python", cmd: "python --version" },
+        { label: "checar Docker", cmd: "docker --version" },
+        { label: "clonar o repositório (se ainda não fez)", cmd: "git clone <url-do-repositorio>" }
+      ],
+      watchout: "Se muita gente estiver sem ambiente pronto, ativar “modo espectador”: projeta a tela e todo mundo acompanha olhando, resolve o ambiente individual depois."
+    },
+    {
+      start: "13:50", end: "14:10",
+      title: "Extração — arquivos estáticos",
+      objective: "Mostrar extração de CSV ao vivo e por que ler por header (não por posição) importa.",
+      talkingPoints: [
+        "Abrir data/raw/vendas_lojas.csv e mostrar a sujeira proposital: datas em dois formatos, nulos, uma duplicata, um outlier de 500 unidades.",
+        "Rodar demo_schema_drift.py: por posição funciona no histórico mas quebra no arquivo incremental (colunas renomeadas e reordenadas).",
+        "Rodar extract_csv.py e mostrar raw.vendas_historico / raw.vendas_recentes carregadas no DuckDB."
+      ],
+      commands: [
+        { label: "gerar os CSVs de novo (opcional)", cmd: "python scripts/generate_mock_csv.py" },
+        { label: "demonstrar a armadilha de schema drift", cmd: "python scripts/demo_schema_drift.py" },
+        { label: "carregar os CSVs crus no DuckDB", cmd: "python scripts/extract_csv.py" }
+      ],
+      watchout: "Este é o momento “aha” da aula — não corra. Se sobrar tempo, deixe um aluno tentar prever o que vai quebrar antes de rodar."
+    },
+    {
+      start: "14:10", end: "14:30",
+      title: "Extração — API",
+      objective: "Mostrar consumo de API pública (Open-Meteo) e o desenho de resiliência do pipeline.",
+      talkingPoints: [
+        "O que é uma API REST e o que é o JSON de resposta — mostrar a URL do endpoint de archive direto no navegador.",
+        "Rodar extract_weather.py e mostrar raw.clima populado com dado real.",
+        "Explicar o fallback: se a rede cair, o script cai automaticamente pro cache local — mostrar data/cache/weather_snapshot.json."
+      ],
+      commands: [
+        { label: "buscar o clima das 5 cidades na Open-Meteo", cmd: "python scripts/extract_weather.py" }
+      ],
+      watchout: "Com a turma toda na mesma rede batendo na API ao mesmo tempo, alguma request lenta é normal — é exatamente o cenário que o cache resolve."
+    },
+    {
+      start: "14:30", end: "14:55",
+      title: "Transformação em SQL",
+      objective: "Staging reconcilia as duas fontes de vendas; mart agrega e junta com o clima.",
+      talkingPoints: [
+        "Por que staging existe: é o único lugar do pipeline que “traduz” a nomenclatura das duas fontes de vendas.",
+        "Mostrar o UNION ALL com rename explícito em transform.sql.",
+        "Ajuste de grão: vendas por transação → agregação diária, pra casar com o clima (que é diário).",
+        "O outlier de 500 unidades: por que ele fica sinalizado (unidades_suspeitas), não apagado."
+      ],
+      commands: [
+        { label: "rodar o pipeline completo (extract + transform)", cmd: "python scripts/run_pipeline.py" }
+      ],
+      watchout: "Se o tempo apertar, pule a leitura linha a linha do SQL e foque nos 3 pontos de decisão: rename, grão, outlier."
+    },
+    {
+      start: "14:55", end: "15:00",
+      title: "Intervalo",
+      objective: "Respiro antes da parte visual.",
+      talkingPoints: [
+        "Aproveitar para já deixar o Metabase subindo em segundo plano — a imagem custom demora um pouco na primeira vez."
+      ],
+      commands: [
+        { label: "subir o Metabase (pode já ir rodando aqui)", cmd: "docker compose up -d --build" }
+      ],
+      commands_note: null,
+      watchout: null
+    },
+    {
+      start: "15:00", end: "15:20",
+      title: "Metabase",
+      objective: "Conectar o Metabase ao warehouse e montar as 3 perguntas do case ao vivo.",
+      talkingPoints: [
+        "Admin settings → Databases → Add database → engine DuckDB → arquivo /data/workshop.duckdb.",
+        "Pergunta 1: receita total por cidade (bar chart).",
+        "Pergunta 2: receita diária vs. temperatura máxima — a pergunta central do case.",
+        "Pergunta 3: receita média por faixa_temperatura, por loja.",
+        "Juntar as 3 em um dashboard único."
+      ],
+      commands: [
+        { label: "subir o Metabase (se ainda não rodou)", cmd: "docker compose up -d --build" }
+      ],
+      watchout: "Se “DuckDB” não aparecer na lista de tipos de banco, o build da imagem falhou — checar `docker compose build --no-cache metabase`."
+    },
+    {
+      start: "15:20", end: "15:30",
+      title: "Fechamento",
+      objective: "Recapitular o pipeline ponta a ponta, apontar próximos passos e abrir para perguntas.",
+      talkingPoints: [
+        "Recap visual: raw → staging → mart → dashboard, e como cada camada resolveu um problema específico.",
+        "Próximos passos reais de um pipeline em produção: orquestração (Airflow/Dagster), testes de dado, cloud.",
+        "Onde continuar depois da aula: repositório no GitHub, notebook exploratório opcional, stretch goals (mart_sabor_temperatura, mart_clientes).",
+        "Abrir para perguntas."
+      ],
+      commands: [],
+      watchout: null
+    }
+  ];
+
+  function toMinutes(hhmm) {
+    var parts = hhmm.split(":");
+    return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+  }
+
+  var eventStartMin = toMinutes(BLOCKS[0].start);
+  var offsets = BLOCKS.map(function (b) {
+    return { startOffset: toMinutes(b.start) - eventStartMin, endOffset: toMinutes(b.end) - eventStartMin };
+  });
+  var totalPlannedMin = offsets[offsets.length - 1].endOffset;
+
+  var rail = document.getElementById("rail");
+  var detail = document.getElementById("detail");
+  var clockEl = document.getElementById("clock");
+  var statusPill = document.getElementById("statusPill");
+  var progressFill = document.getElementById("progressFill");
+  var btnStart = document.getElementById("btnStart");
+  var btnReset = document.getElementById("btnReset");
+
+  var state = {
+    selected: 0,
+    started: false,
+    startedAt: null,
+    timer: null
+  };
+
+  function autoCurrentIndex(elapsedMin) {
+    for (var i = 0; i < offsets.length; i++) {
+      if (elapsedMin < offsets[i].endOffset) return i;
+    }
+    return offsets.length - 1;
+  }
+
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+  function formatClock(totalSeconds) {
+    var m = Math.floor(totalSeconds / 60);
+    var s = totalSeconds % 60;
+    return pad(m) + ":" + pad(s);
+  }
+
+  function render() {
+    renderRail();
+    renderDetail();
+  }
+
+  function renderRail() {
+    var elapsedMin = state.started ? (Date.now() - state.startedAt) / 60000 : -1;
+    var current = state.started ? autoCurrentIndex(elapsedMin) : -1;
+
+    rail.innerHTML = "";
+    BLOCKS.forEach(function (b, i) {
+      var status = "upcoming";
+      if (current !== -1) {
+        if (i < current) status = "done";
+        else if (i === current) status = "current";
+      }
+
+      var item = document.createElement("button");
+      item.className = "rail-item";
+      item.type = "button";
+      item.dataset.status = status;
+      item.setAttribute("aria-current", i === state.selected ? "true" : "false");
+      item.innerHTML =
+        '<span class="rail-dot" aria-hidden="true"></span>' +
+        '<span>' +
+          '<span class="rail-time">' + b.start + '–' + b.end + '</span>' +
+          '<span class="rail-name">' + b.title + '</span>' +
+        '</span>';
+      item.addEventListener("click", function () {
+        state.selected = i;
+        render();
+      });
+      rail.appendChild(item);
+    });
+  }
+
+  function renderDetail() {
+    var b = BLOCKS[state.selected];
+    var durationMin = toMinutes(b.end) - toMinutes(b.start);
+
+    var html = '';
+    html += '<div class="detail-head"><h2>' + b.title + '</h2>';
+    html += '<span class="chip">' + b.start + '–' + b.end + ' · ' + durationMin + ' min</span></div>';
+    html += '<p class="objective">' + b.objective + '</p>';
+
+    if (b.talkingPoints && b.talkingPoints.length) {
+      html += '<div class="section-label">Pontos para falar</div>';
+      html += '<ul class="talking-points">';
+      b.talkingPoints.forEach(function (tp) { html += '<li>' + tp + '</li>'; });
+      html += '</ul>';
+    }
+
+    if (b.commands && b.commands.length) {
+      html += '<div class="section-label">Comandos</div>';
+      b.commands.forEach(function (c, idx) {
+        html += '<div class="cmd">' +
+          '<code>' + c.cmd + '</code>' +
+          '<button class="cmd-copy" data-cmd-index="' + idx + '" type="button">copiar</button>' +
+          '</div>';
+      });
+    }
+
+    if (b.watchout) {
+      html += '<div class="section-label">De olho</div>';
+      html += '<div class="callout"><span class="mark">!</span><span>' + b.watchout + '</span></div>';
+    }
+
+    if (!b.talkingPoints.length && !(b.commands && b.commands.length) && !b.watchout) {
+      html += '<p class="empty-hint">Sem anotações para este bloco.</p>';
+    }
+
+    detail.innerHTML = html;
+
+    detail.querySelectorAll(".cmd-copy").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var idx = parseInt(btn.dataset.cmdIndex, 10);
+        var text = b.commands[idx].cmd;
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = "copiado!";
+          btn.dataset.copied = "true";
+          setTimeout(function () { btn.textContent = "copiar"; btn.dataset.copied = "false"; }, 1400);
+        });
+      });
+    });
+  }
+
+  function tick() {
+    if (!state.started) return;
+    var elapsedSec = Math.floor((Date.now() - state.startedAt) / 1000);
+    var elapsedMin = elapsedSec / 60;
+    clockEl.textContent = formatClock(elapsedSec);
+
+    var current = autoCurrentIndex(elapsedMin);
+    var delta = current - state.selected;
+
+    var pillState, pillText;
+    if (delta <= 0) { pillState = "ok"; pillText = "no horário"; }
+    else if (delta === 1) { pillState = "warn"; pillText = "levemente atrasado"; }
+    else { pillState = "crit"; pillText = "atrasado"; }
+    statusPill.dataset.state = pillState;
+    statusPill.textContent = pillText;
+
+    var pct = Math.min(100, (elapsedMin / totalPlannedMin) * 100);
+    progressFill.style.width = pct + "%";
+    progressFill.dataset.state = delta <= 0 ? "" : (delta === 1 ? "warn" : "crit");
+
+    renderRail();
+  }
+
+  btnStart.addEventListener("click", function () {
+    state.started = true;
+    state.startedAt = Date.now();
+    statusPill.dataset.state = "ok";
+    statusPill.textContent = "no horário";
+    if (state.timer) clearInterval(state.timer);
+    state.timer = setInterval(tick, 1000);
+    tick();
+  });
+
+  btnReset.addEventListener("click", function () {
+    state.started = false;
+    state.startedAt = null;
+    if (state.timer) clearInterval(state.timer);
+    clockEl.textContent = "00:00";
+    statusPill.dataset.state = "idle";
+    statusPill.textContent = "parado";
+    progressFill.style.width = "0%";
+    progressFill.dataset.state = "";
+    render();
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "ArrowRight" || ev.key === "ArrowDown" || ev.key === "j") {
+      state.selected = Math.min(BLOCKS.length - 1, state.selected + 1);
+      render();
+    } else if (ev.key === "ArrowLeft" || ev.key === "ArrowUp" || ev.key === "k") {
+      state.selected = Math.max(0, state.selected - 1);
+      render();
+    }
+  });
+
+  render();
+})();
+</script>
