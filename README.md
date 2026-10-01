@@ -38,7 +38,7 @@ Detalhes de schema e decisões de modelagem: ver seções 3 e 5 do [`PLAN.md`](P
 ### 1. Clonar o repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/danietakeshi/workshop-pipeline-dados.git
 cd workshop-pipeline-dados
 ```
 

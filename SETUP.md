@@ -12,7 +12,7 @@ Para aproveitar bem as 2 horas de workshop, pedimos que cada participante chegue
 ## 2. Clonar o repositório e preparar o ambiente Python
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/danietakeshi/workshop-pipeline-dados.git
 cd workshop-pipeline-dados
 
 python -m venv .venv
