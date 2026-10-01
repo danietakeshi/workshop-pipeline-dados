@@ -8,7 +8,10 @@ services:
       MB_DB_FILE: /metabase-data/metabase.db
     volumes:
       # deixa o warehouse.duckdb visível de dentro do container, em /data
-      - ./warehouse:/data:ro
+      # (sem :ro: o driver DuckDB precisa escrever um arquivo .wal/lock ao
+      # lado do .duckdb mesmo em consultas só de leitura, senão dá
+      # "Read-only file system" ao abrir a conexão no Metabase)
+      - ./warehouse:/data
       # persiste a config/metadados do próprio Metabase entre restarts
       - metabase-data:/metabase-data
     restart: unless-stopped
