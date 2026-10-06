@@ -3,6 +3,9 @@
 __pycache__/
 *.pyc
 
+# Checkpoints automáticos do Jupyter
+.ipynb_checkpoints/
+
 # Banco DuckDB gerado pelo pipeline (cada aluno gera o seu)
 warehouse/*.duckdb
 warehouse/*.duckdb.wal
