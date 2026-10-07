@@ -19,3 +19,6 @@ Thumbs.db
 
 # Config local do Claude Code
 .claude/
+
+# Gabarito do professor: NUNCA commitar, só a versão dos alunos vai pro repo
+notebooks/construindo_pipeline_professor.ipynb
