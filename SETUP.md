@@ -1,4 +1,4 @@
-# Pré-requisitos — fazer ANTES do dia 06/10
+# Pré-requisitos — fazer ANTES do dia 07/10
 
 Para aproveitar bem as 2 horas de workshop, pedimos que cada participante chegue com o ambiente já pronto. Leva uns 10-15 minutos.
 

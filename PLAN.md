@@ -1,7 +1,7 @@
 # Workshop: Construindo um Pipeline de Dados — da Ingestão à Análise
 
 **Evento:** Semana Acadêmica de Ciência da Computação — PUC-SP (PUCTech)
-**Data/Horário:** 06/10/2026, 13:30–15:30 (120 min, presencial)
+**Data/Horário:** 07/10/2026, 13:30–15:30 (120 min, presencial)
 **Instrutor:** Daniel (Analytics Engineer, DoorDash)
 **Público:** Alunos de graduação em Ciência da Computação, nível iniciante/intermediário em dados
 
@@ -211,7 +211,7 @@ Esse roteiro é apertado — cada bloco tem uma versão "atalho" pronta (código
 
 ---
 
-## 9. Pré-requisitos a enviar aos alunos (antes do dia 06/10)
+## 9. Pré-requisitos a enviar aos alunos (antes do dia 07/10)
 
 - Python 3.11+ instalado
 - Docker Desktop instalado e rodando

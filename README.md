@@ -1,6 +1,6 @@
 # Construindo um Pipeline de Dados — da Ingestão à Análise
 
-Workshop da Semana Acadêmica de Ciência da Computação — PUC-SP (PUCTech), 06/10/2026.
+Workshop da Semana Acadêmica de Ciência da Computação — PUC-SP (PUCTech), 07/10/2026.
 
 Case: **GeloDados**, uma rede fictícia de 5 lojas de sorvete/bebida gelada. O time comercial exporta vendas diárias em CSV, mas ninguém sabe dizer se o **clima** influencia as vendas — essa informação não existe internamente, precisa vir de uma **API pública** (Open-Meteo). Sua missão: construir o pipeline que junta os dois mundos e responde:
 

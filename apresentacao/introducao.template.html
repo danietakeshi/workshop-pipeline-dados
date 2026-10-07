@@ -1,0 +1,485 @@
+<meta charset="utf-8" />
+<title>Construindo um Pipeline de Dados: da Ingestão à Análise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  @font-face {
+    font-family: "JBMono";
+    src: url(data:font/ttf;base64,{{FONT_REGULAR_B64}}) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "JBMono";
+    src: url(data:font/ttf;base64,{{FONT_BOLD_B64}}) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --bg: #10161c;
+    --surface: #1a222b;
+    --surface-2: #212b36;
+    --border: #2c3947;
+    --text: #e7ecf1;
+    --text-muted: #8fa0af;
+    --accent: #f2994a;
+    --accent-ink: #1a1007;
+    --accent-cool: #46c2d9;
+    --ok: #4ade80;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+    --font-display: -apple-system, "Segoe UI Semibold", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-body: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+    --font-mono: "JBMono", "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f2f5f7; --surface: #ffffff; --surface-2: #e7ecf0; --border: #d4dce2;
+      --text: #16202b; --text-muted: #5a6b78;
+      --accent: #d9782e; --accent-ink: #fff7ef; --accent-cool: #0e8fa6;
+      --ok: #1e9e5a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10161c; --surface: #1a222b; --surface-2: #212b36; --border: #2c3947;
+    --text: #e7ecf1; --text-muted: #8fa0af;
+    --accent: #f2994a; --accent-ink: #1a1007; --accent-cool: #46c2d9; --ok: #4ade80;
+  }
+  :root[data-theme="light"] {
+    --bg: #f2f5f7; --surface: #ffffff; --surface-2: #e7ecf0; --border: #d4dce2;
+    --text: #16202b; --text-muted: #5a6b78;
+    --accent: #d9782e; --accent-ink: #fff7ef; --accent-cool: #0e8fa6; --ok: #1e9e5a;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: var(--accent-cool); }
+  :focus-visible { outline: 2px solid var(--accent-cool); outline-offset: 2px; }
+
+  main {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 3.2rem 1.5rem 2.6rem;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(1200px 400px at 15% -10%, color-mix(in srgb, var(--accent) 16%, transparent), transparent),
+      var(--surface);
+    text-align: center;
+  }
+  .hero .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 auto 0.8rem;
+    max-width: 46rem;
+    text-wrap: balance;
+  }
+  .hero .sub {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* ---------- Section shell ---------- */
+  section { padding: 3.2rem 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-cool);
+    margin: 0 0 0.6rem;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    margin: 0 0 1.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Sobre ---------- */
+  .about {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .about-photo {
+    width: 11rem;
+    aspect-ratio: 3 / 4;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin: 0 0 0.15rem; }
+  .about-role { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); margin: 0 0 1.1rem; }
+  .about-blurb { font-size: 1rem; line-height: 1.6; color: var(--text); margin: 0 0 1.4rem; max-width: 42rem; }
+  .about-blurb a { text-decoration: none; border-bottom: 1px dashed var(--accent-cool); }
+
+  .timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+  .timeline li {
+    position: relative;
+    padding-left: 1.3rem;
+    border-left: 2px solid var(--border);
+  }
+  .timeline li.is-current { border-left-color: var(--accent); }
+  .timeline li::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 0.3rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+  .timeline li.is-current::before { background: var(--accent); }
+  .timeline .org { font-weight: 700; font-family: var(--font-display); font-size: 0.95rem; }
+  .timeline .period { font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted); }
+
+  /* ---------- Arquitetura (fluxograma) ---------- */
+  .case-blurb {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 42rem;
+    margin: 0 0 2rem;
+  }
+  .case-blurb strong { color: var(--accent); }
+  .diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .diagram-stage { width: 100%; max-width: 40rem; }
+  .diagram-stage-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 0.4rem;
+  }
+  .diagram-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+  .diagram-lanes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .diagram-lane {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+    flex: 1 1 13rem;
+    max-width: 16rem;
+    padding: 0.8rem;
+    border-radius: 0.7rem;
+    border: 1px dashed var(--border);
+  }
+  .diagram-lane.lane-csv {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    background: color-mix(in srgb, var(--accent) 7%, transparent);
+  }
+  .diagram-lane.lane-api {
+    border-color: color-mix(in srgb, var(--accent-cool) 45%, var(--border));
+    background: color-mix(in srgb, var(--accent-cool) 7%, transparent);
+  }
+  .diagram-lane-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+  .diagram-lane.lane-csv .diagram-lane-label { color: var(--accent); }
+  .diagram-lane.lane-api .diagram-lane-label { color: var(--accent-cool); }
+  .diagram-lane .diagram-box { max-width: none; }
+  .diagram-lane .diagram-arrow-v { font-size: 1.1rem; text-align: center; }
+  .diagram-box {
+    flex: 1 1 11rem;
+    max-width: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    padding: 0.7rem 0.9rem;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+  }
+  .diagram-box .tag {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+  .diagram-box.accent { border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+  .diagram-box.cool { border-color: color-mix(in srgb, var(--accent-cool) 55%, var(--border)); }
+  .diagram-box.dash { background: var(--surface-2); color: var(--text-muted); font-weight: 400; border-style: dashed; }
+  .diagram-arrow-v {
+    color: var(--accent);
+    font-size: 1.4rem;
+    font-family: var(--font-mono);
+    line-height: 1;
+  }
+  .diagram-caption { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-top: 1.2rem; text-align: center; }
+
+  /* ---------- Setup ---------- */
+  .setup-cmd {
+    position: relative;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    padding: 1.2rem 1.2rem 1.2rem 1.4rem;
+    overflow-x: auto;
+  }
+  .setup-cmd pre {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    line-height: 1.75;
+    white-space: pre;
+  }
+  .setup-cmd .c1 { color: var(--text-muted); }
+  .cmd-copy {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.4rem;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+  }
+  .cmd-copy:hover { color: var(--text); }
+  .cmd-copy[data-copied="true"] { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, var(--border)); }
+  .setup-note { font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.6; }
+  .setup-note a { text-decoration: none; border-bottom: 1px dashed var(--accent-cool); }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem 2.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .about { grid-template-columns: 1fr; }
+    .about-photo { width: 8rem; margin: 0 auto; }
+    .about-name, .about-role, .about-blurb { text-align: center; }
+    .timeline li { text-align: left; }
+  }
+</style>
+
+<header class="hero">
+  <p class="kicker">Workshop · Semana Acadêmica de Ciência da Computação, PUC-SP (PUCTech)</p>
+  <h1>Construindo um Pipeline de Dados: da Ingestão à Análise</h1>
+  <p class="sub">GeloDados: do CSV cru ao dashboard, passando por API, DuckDB e Metabase</p>
+</header>
+
+<main>
+  <section id="sobre">
+    <p class="section-label">Quem está ministrando</p>
+    <div class="about">
+      <div class="about-photo">
+        <img src="{{PHOTO_SRC}}" alt="Foto de Daniel Takeshi" />
+      </div>
+      <div>
+        <p class="about-name">Daniel Takeshi</p>
+        <p class="about-role">Analytics Engineer @ DoorDash</p>
+        <p class="about-blurb">
+          Mais de 10 anos de carreira, a maior parte deles dedicados a dados: ETL, data lakes,
+          BI e analytics em empresas como Samsung Electronics e DoorDash, com passagem
+          anterior por consultoria (EY). No dia a dia, isso significa ingerir dados de
+          fontes diferentes (bancos, APIs, planilhas), modelar camadas confiáveis e
+          entregar análise que o negócio realmente usa, exatamente o percurso deste
+          workshop. Perfil completo no
+          <a href="https://www.linkedin.com/in/daniel-takeshi/" target="_blank" rel="noopener">LinkedIn</a>.
+        </p>
+        <ul class="timeline">
+          <li class="is-current">
+            <div class="org">DoorDash</div>
+            <div class="period">1 ano 7 meses &middot; desde abr. 2025</div>
+          </li>
+          <li>
+            <div class="org">Samsung Electronics</div>
+            <div class="period">6 anos 10 meses &middot; jul. 2018 a abr. 2025</div>
+          </li>
+          <li>
+            <div class="org">EY</div>
+            <div class="period">2 anos 10 meses &middot; out. 2015 a jul. 2018</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="arquitetura">
+    <p class="section-label">O que vamos construir</p>
+    <h2>Arquitetura do pipeline</h2>
+    <p class="case-blurb">
+      O case é a <strong>GeloDados</strong>: uma rede fictícia de 5 lojas de sorvete e
+      bebida gelada, espalhadas por 5 cidades brasileiras. O time comercial exporta as
+      vendas diárias em CSV, mas ninguém sabe dizer se o clima influencia o resultado,
+      porque essa informação não existe internamente: precisa vir de uma API pública.
+      É a pergunta que vamos responder ao vivo, construindo o pipeline que junta os dois
+      mundos.
+    </p>
+    <div class="diagram">
+      <div class="diagram-stage">
+        <div class="diagram-stage-label">Fontes &amp; extração &middot; duas origens bem diferentes</div>
+        <div class="diagram-lanes">
+          <div class="diagram-lane lane-csv">
+            <div class="diagram-lane-label">Arquivo (CSV)</div>
+            <div class="diagram-box">CSV histórico<span class="tag">vendas_lojas.csv</span></div>
+            <div class="diagram-box">CSV incremental<span class="tag">schema diferente</span></div>
+            <div class="diagram-arrow-v">&darr;</div>
+            <div class="diagram-box dash">extract_csv.py</div>
+          </div>
+          <div class="diagram-lane lane-api">
+            <div class="diagram-lane-label">Rede (API)</div>
+            <div class="diagram-box cool">API Open-Meteo<span class="tag">clima por cidade/dia</span></div>
+            <div class="diagram-arrow-v">&darr;</div>
+            <div class="diagram-box dash cool">extract_weather.py</div>
+          </div>
+        </div>
+      </div>
+      <div class="diagram-arrow-v">&darr;</div>
+      <div class="diagram-stage">
+        <div class="diagram-stage-label">DuckDB &middot; raw</div>
+        <div class="diagram-row">
+          <div class="diagram-box">raw.vendas_historico</div>
+          <div class="diagram-box">raw.vendas_recentes</div>
+          <div class="diagram-box">raw.clima</div>
+        </div>
+      </div>
+      <div class="diagram-arrow-v">&darr;</div>
+      <div class="diagram-stage">
+        <div class="diagram-stage-label">DuckDB &middot; staging</div>
+        <div class="diagram-row">
+          <div class="diagram-box accent">stg_vendas<span class="tag">reconciliado + tipado</span></div>
+          <div class="diagram-box accent">stg_clima<span class="tag">tipado</span></div>
+        </div>
+      </div>
+      <div class="diagram-arrow-v">&darr;</div>
+      <div class="diagram-stage">
+        <div class="diagram-stage-label">DuckDB &middot; mart</div>
+        <div class="diagram-row">
+          <div class="diagram-box">mart_vendas_clima</div>
+          <div class="diagram-box">mart_sabor_temperatura</div>
+          <div class="diagram-box">mart_clientes</div>
+        </div>
+      </div>
+      <div class="diagram-arrow-v">&darr;</div>
+      <div class="diagram-stage">
+        <div class="diagram-stage-label">Análise</div>
+        <div class="diagram-row">
+          <div class="diagram-box cool">Dashboard<span class="tag">Metabase</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="diagram-caption">detalhes de schema em PLAN.md</p>
+  </section>
+
+  <section id="setup">
+    <p class="section-label">Antes de começar</p>
+    <h2>Passo a passo de instalação</h2>
+    <div class="setup-cmd">
+      <button class="cmd-copy" type="button">copiar</button>
+      <pre><span class="c1"># 1. clonar o repositório</span>
+git clone https://github.com/danietakeshi/workshop-pipeline-dados.git
+cd workshop-pipeline-dados
+
+<span class="c1"># 2. ambiente Python</span>
+python -m venv .venv
+source .venv/Scripts/activate   <span class="c1"># PowerShell: .venv\Scripts\Activate.ps1</span>
+pip install -r requirements.txt
+
+<span class="c1"># 3. abrir o notebook da aula (Ctrl+C na janela pra encerrar e seguir)</span>
+pip install -r requirements-notebook.txt
+jupyter lab notebooks/construindo_pipeline.ipynb
+
+<span class="c1"># 4. rodar o pipeline (CSV + API -> DuckDB)</span>
+python scripts/run_pipeline.py
+
+<span class="c1"># 5. subir o Metabase</span>
+docker compose up -d --build</pre>
+    </div>
+    <p class="setup-note">
+      Pré-requisitos: Python 3.11+, Git e Docker Desktop (aberto pelo menos uma vez antes de começar).
+      Passo a passo completo e troubleshooting em <code>SETUP.md</code> e <code>README.md</code> no repositório.
+    </p>
+  </section>
+</main>
+
+<footer>
+  Workshop PUCTech &middot; 07/10/2026 &middot; github.com/danietakeshi/workshop-pipeline-dados
+</footer>
+
+<script>
+  document.querySelectorAll(".cmd-copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var pre = btn.parentElement.querySelector("pre");
+      var text = pre.textContent;
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = "copiado!";
+        btn.dataset.copied = "true";
+        setTimeout(function () {
+          btn.textContent = "copiar";
+          btn.dataset.copied = "false";
+        }, 1400);
+      });
+    });
+  });
+</script>
